@@ -15,5 +15,12 @@ describe '99 Bottles' do
 
       expect(::Bottles.new.verse(3)).to eq(expected)
     end
+
+    it 'returns the 2 verse' do
+      expected = "2 bottles of beer on the wall, 2 bottles of beer.\n" +
+        "Take one down and pass it around, 1 bottle of beer on the wall.\n"
+
+      expect(::Bottles.new.verse(2)).to eq(expected)
+    end
   end
 end
