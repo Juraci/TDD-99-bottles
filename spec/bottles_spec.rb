@@ -29,5 +29,12 @@ describe '99 Bottles' do
 
       expect(::Bottles.new.verse(1)).to eq(expected)
     end
+
+    it 'returns the 0 verse' do
+      expected = "No more bottles of beer on the wall, no more bottles of beer.\n" +
+        "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+
+      expect(::Bottles.new.verse(0)).to eq(expected)
+    end
   end
 end
