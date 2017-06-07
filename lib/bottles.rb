@@ -15,4 +15,8 @@ class Bottles
       "Take one down and pass it around, #{number - 1} bottles of beer on the wall.\n"
     end
   end
+
+  def verses(starting, ending)
+    starting.downto(ending).collect { |v| verse(v) }.join()
+  end
 end

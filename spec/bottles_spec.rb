@@ -37,4 +37,30 @@ describe '99 Bottles' do
       expect(::Bottles.new.verse(0)).to eq(expected)
     end
   end
+
+  describe '#verses' do
+    context 'when asking verses from 99 to 98' do
+      it 'returns the verses' do
+        expected = "99 bottles of beer on the wall, 99 bottles of beer.\n" +
+          "Take one down and pass it around, 98 bottles of beer on the wall.\n" +
+          "98 bottles of beer on the wall, 98 bottles of beer.\n" +
+          "Take one down and pass it around, 97 bottles of beer on the wall.\n"
+
+        expect(::Bottles.new.verses(99, 98)).to eq(expected)
+      end
+    end
+
+    context 'when asking verses from 2 until 0' do
+      it 'returns the verses' do
+        expected = "2 bottles of beer on the wall, 2 bottles of beer.\n" +
+          "Take one down and pass it around, 1 bottle of beer on the wall.\n" +
+          "1 bottle of beer on the wall, 1 bottle of beer.\n" +
+          "Take it down and pass it around, no more bottles of beer on the wall.\n" +
+          "No more bottles of beer on the wall, no more bottles of beer.\n" +
+          "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+
+        expect(::Bottles.new.verses(2, 0)).to eq(expected)
+      end
+    end
+  end
 end
