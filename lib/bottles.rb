@@ -4,7 +4,39 @@ class Bottles
     "#{action(number)}, #{quantity(successor(number))} #{container(successor(number))} of beer on the wall.\n"
   end
 
+  def verses(starting, ending)
+    starting.downto(ending).collect { |v| verse(v) }.join()
+  end
+
+  def song
+    verses(99, 0)
+  end
+
   def successor(number)
+    BottleNumber.new(number).successor
+  end
+
+  def action(number)
+    BottleNumber.new(number).action
+  end
+
+  def quantity(number)
+    BottleNumber.new(number).quantity
+  end
+
+  def container(number)
+    BottleNumber.new(number).container
+  end
+end
+
+class BottleNumber
+  attr_reader :number
+
+  def initialize(number)
+    @number = number
+  end
+
+  def successor
     if number == 0
       99
     else
@@ -12,15 +44,15 @@ class Bottles
     end
   end
 
-  def action(number)
+  def action
     if number == 0
       "Go to the store and buy some more"
     else
-      "Take #{pronoun(number)} down and pass it around"
+      "Take #{pronoun} down and pass it around"
     end
   end
 
-  def quantity(number)
+  def quantity
     if number == 0
       "no more"
     else
@@ -28,7 +60,7 @@ class Bottles
     end
   end
 
-  def pronoun(number)
+  def pronoun
     if number == 1
       "it"
     else
@@ -36,19 +68,11 @@ class Bottles
     end
   end
 
-  def container(number)
+  def container
     if number == 1
       "bottle"
     else
       "bottles"
     end
-  end
-
-  def verses(starting, ending)
-    starting.downto(ending).collect { |v| verse(v) }.join()
-  end
-
-  def song
-    verses(99, 0)
   end
 end
