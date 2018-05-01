@@ -38,6 +38,7 @@ describe '99 Bottles' do
       expect(::Bottles.new.verse(0)).to eq(expected)
     end
 
+=begin
     context 'when requesting the 7th verse' do
       it 'returns 1 six-pack in the place of 6 bottles' do
         expected = "7 bottles of beer on the wall, 7 bottles of beer.\n" +
@@ -55,6 +56,7 @@ describe '99 Bottles' do
         expect(::Bottles.new.verse(6)).to eq(expected)
       end
     end
+=end
   end
 
   describe '#verses' do
